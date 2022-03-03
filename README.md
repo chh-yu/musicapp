@@ -1,4 +1,5 @@
-# musicapp
+# 仿网易云网站项目
+使用开源项目[网易云API](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
 ## Project setup
 ```
