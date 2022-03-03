@@ -6,6 +6,9 @@ npm install
 ```
 
 ### Compiles and hot-reloads for development
+
+服务器地址在utils/http.js文件中常量HOST中配置
+
 ```
 npm run serve
 ```
