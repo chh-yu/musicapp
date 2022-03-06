@@ -56,6 +56,13 @@
                         </div>
                     </div>
                     <div class="ndlist">
+                        <div class="ndlist-arrow"><IconFont icontype="arrowleft" /></div>
+                        <div class="ndlist-center">
+                            <div class="ndlist-rollbox">
+                                <div class="ndlist-item" v-for="item in newalbums" :key="item.id"></div>
+                            </div>
+                        </div>
+                        <div class="ndlist-arrow"><IconFont icontype="arrowright" /></div>
                     </div>
                 </div>
                 <div class="toplist">
@@ -151,7 +158,7 @@ export default {
         })
         http.post("/top/playlist", {limit: 8}).then((res)=>{that.hrplaylists = res.data.playlists})
         http.post("/top/artists", {limit: 5}).then((res)=>{that.singers = res.data.artists})
-        http.post('/top/album', {limit: 10}).then((res)=>{that.newalbums  = res.data.weekData})
+        http.post('/top/album', {limit: 10}).then((res)=>{that.newalbums  = res.data.weekData.splice(0, 10)})
         http.post('/dj/toplist/popular', {limit: 5}).then((res)=>{that.populardjs = res.data.data.list})
     },
     methods:{
@@ -365,9 +372,13 @@ export default {
     text-decoration: underline;
 }
 .ndlist{
-    height: 184px;
+    height: 185px;
     border: 1px solid #d3d3d3;
     background: #f5f5f5;
+    padding-top: 28px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 .tllist{
     height: 472px;
@@ -513,5 +524,35 @@ export default {
 .djlist .djlist-item .introduce .count{
     margin-top: 5px;
     color: #666;
+}
+.ndlist .ndlist-center{
+    width: 645px;
+    height: 150px;
+    overflow: hidden;
+}
+.ndlist .ndlist-arrow{
+    height: 17px;
+    width: 17px;
+    margin-top: 45px;
+    font-size: 17px;
+    font-weight: 900;
+    color: #8c8c8c;
+    cursor: pointer;
+}
+.ndlist .ndlist-arrow:hover{
+    color: #5a5a5a;
+}
+.ndlist .ndlist-center .ndlist-rollbox{
+    width: calc(645px*3);
+    height: 100%;
+    background: lightgoldenrodyellow;
+}
+.ndlist .ndlist-center .ndlist-rollbox .ndlist-item{
+    width: 119px;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0 5px;
+    background: lightsalmon;
+    float: left;
 }
 </style>

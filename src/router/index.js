@@ -8,6 +8,7 @@ import PlayList from '@/views/PlayList'
 import DJRadio from '@/views/DJRadio'
 import Artist from '@/views/Artist'
 import Album from '@/views/Album'
+import NotFound from '@/views/NotFound'
 Vue.use(VueRouter)
 
 const routes = [
@@ -60,7 +61,12 @@ const routes = [
     path: '/mymusic',
     name: 'mymusic',
     component: MyMusic
-  }
+  },
+  { 
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+  },
 ]
 
 const router = new VueRouter({

@@ -1,12 +1,12 @@
 import axios from "axios"
 import {extend} from "@/utils/util.js"
 
-const server = "http://39.99.55.31:3000"
-// const server = "http://localhost:8080"
+const HOST = "http://39.99.55.31:3000"
+// const HOST = "http://localhost:8080"
 
 function post(url, data={}){
     var options = {
-        url: server+url,
+        url: HOST+url,
         method: "post",
         withCredentials: true
     }
@@ -16,7 +16,7 @@ function post(url, data={}){
 }
 function get(url, data={}){
     var options = {
-        url: server+url,
+        url: HOST+url,
         method: "get"
     }
     options = extend(true, options, {data})
