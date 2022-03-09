@@ -1,5 +1,5 @@
 <template>
-  <i class="iconfont" :class="[icon, extraclass]"></i>
+  <i class="iconfont" :class="[icon, extraclass]">{{words}}</i>
 </template>
 
 <script>
@@ -17,7 +17,11 @@ var iconmap={
     "erji": "icon-erji",
     "kongxinyuan": "icon-kongxinyuan",
     "arrowmore": "icon-more",
-    "playbtn": "icon-play"
+    "playbtn": "icon-play",
+    "song-srch": "icon-yinle",
+    "artist-srch": "icon-iconrenxiang",
+    "album-srch": "icon-zhuanji",
+    "playlist-srch": "icon-gedan"
 }
 export default {
     props:{
@@ -28,6 +32,10 @@ export default {
         extraclass:{
             type: String,
             default: "",
+        },
+        words:{
+            type: String,
+            default: ""
         }
 
     },
@@ -40,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-@import "//at.alicdn.com/t/font_3196183_njifdomywbj.css";
+@import "//at.alicdn.com/t/font_3196183_wanff42lz5d.css";
 .iconfont{
     font-size: inherit;
     display: flex;

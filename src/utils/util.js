@@ -51,11 +51,37 @@ function typejudge(i){
     if(i instanceof Function) return "Function"
     return "Object"
 }
+/* 节流 */
+function throttle(func, wait){
+    let prevtime = 0
+    return function(){
+        let args = arguments
+        let context = this
+        let now = Date()
+        if(now - prevtime > wait){
+            func.apply(context, args)
+        }
+    }
+}
+/* 防抖（非立即执行） */
+function debounce(func, wait){
+    let timeout
+    return function(){
+        let args = arguments
+        let context = this
+        if(timeout) clearTimeout(timeout)
+        timeout = setTimeout(()=>{
+            func.apply(context, arguments)
+        }, wait)
+    }
+}
 /* 对一个节点判断所有父节点里有无目标节点 */
 function judgeparentnode(child, parent){
 
 }
 export {
     extend,
-    typejudge
+    typejudge,
+    throttle,
+    debounce
 }

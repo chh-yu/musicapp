@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <router-view @login="$emit('login')"></router-view>
+    <keep-alive include="Recommend">
+      <router-view @login="$emit('login')"></router-view>
+    </keep-alive>
   </div>
 </template>
 

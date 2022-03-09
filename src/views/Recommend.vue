@@ -133,6 +133,7 @@ import http from "@/utils/http"
 import IconFont from "@/components/IconFont"
 import PlaylistCard from "@/components/PlaylistCard"
 export default {
+    name: "Recommend",
     components:{
         IconFont,
         PlaylistCard
@@ -153,7 +154,7 @@ export default {
         http.post("/banner").then((res)=>{that.banners = res.data.banners}).then(()=>{
             this.banner_control = setInterval(()=>{
             that.banner_index =  (that.banner_index+1)%that.banners.length
-            console.log(that.banner_index)
+            // console.log(that.banner_index)
         }, 3000)
         })
         http.post("/top/playlist", {limit: 8}).then((res)=>{that.hrplaylists = res.data.playlists})
@@ -167,10 +168,10 @@ export default {
             if(event.target.localName == 'i'){
                 clearInterval(this.banner_control)
                 this.banner_index =  target
-                console.log(this.banner_index)
+                // console.log(this.banner_index)
                 this.banner_control = setInterval(()=>{
                     that.banner_index =  (that.banner_index+1)%that.banners.length
-                    console.log(that.banner_index)
+                    // console.log(that.banner_index)
                 }, 3000)
             }
         }
